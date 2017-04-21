@@ -1,0 +1,16 @@
+Listening on :::9090
+Sending to 100.64.0.1:9090
+
+Average capacity: 5.04 Mbits/s
+Average throughput: 5.04 Mbits/s (99.9% utilization)
+95th percentile per-packet queueing delay: 1185 ms
+95th percentile signal delay: 1732 ms
+terminate called after throwing an instance of 'unix_error'
+  what():  send: Invalid argument
+
+Uploading data to server... done.
+
+Can't connect to cs344g.keithw.org:80
+
+Connection timed out at /usr/share/perl5/LWP/Protocol/http.pm line 47.
+
