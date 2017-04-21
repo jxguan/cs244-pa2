@@ -8,7 +8,13 @@
 class Controller
 {
 private:
+  const unsigned int INITIAL_WINDOW_SIZE = 50;
+  const unsigned int ADDITIVE_INCREASE_SIZE = 2;
+  const double MULT_DECREASE_FACTOR = 4.0 / 5.0;
+  const uint64_t MD_TIMEOUT = 100;
+
   bool debug_; /* Enables debugging output */
+  double a_window_size = INITIAL_WINDOW_SIZE;
 
   /* Add member variables here */
 

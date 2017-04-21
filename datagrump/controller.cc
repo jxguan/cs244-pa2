@@ -14,7 +14,7 @@ Controller::Controller( const bool debug )
 unsigned int Controller::window_size( void )
 {
   /* Default: fixed window size of 100 outstanding datagrams */
-  unsigned int the_window_size = 50;
+  unsigned int the_window_size = a_window_size;
 
   if ( debug_ ) {
     cerr << "At time " << timestamp_ms()
@@ -49,7 +49,12 @@ void Controller::ack_received( const uint64_t sequence_number_acked,
                                /* when the ack was received (by sender) */
 {
   /* Default: take no action */
-
+  if (timestamp_ack_received - send_timestamp_acked < MD_TIMEOUT) {
+    a_window_size += ADDITIVE_INCREASE_SIZE / a_window_size;
+  } else {
+    a_window_size *= MULT_DECREASE_FACTOR;
+    a_window_size = a_window_size < 1 ? 1 : a_window_size;
+  }
   if ( debug_ ) {
     cerr << "At time " << timestamp_ack_received
 	 << " received ack for datagram " << sequence_number_acked
