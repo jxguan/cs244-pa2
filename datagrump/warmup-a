@@ -6,7 +6,7 @@ do
   make
   for n in 1 2 3
   do
-    ./run-contest warmup &> output/window_${i}_${n}.out
+    ./run-contest warmup &> output_a/window_${i}_${n}.out
   done
   j=$i
 done
