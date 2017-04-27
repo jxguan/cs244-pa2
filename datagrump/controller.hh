@@ -8,12 +8,12 @@
 class Controller
 {
 private:
-  const double ALPHA = 0.25;
-  const double BETA = 0.4;
-  const double DELTA = 0.05;
+  const double ALPHA = 0.8;
+  const double BETA = 0.3;
+  const double DELTA = 0.25;
 
-  const unsigned int T_LOW = 40;
-  const unsigned int T_HIGH = 100;
+  const unsigned int T_LOW = 60;
+  const unsigned int T_HIGH = 150;
   const unsigned int MIN_RTT = 50;
   const double MIN_RATE = 1.0;
   const unsigned int N = 1;
