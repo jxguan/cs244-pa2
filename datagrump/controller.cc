@@ -14,7 +14,7 @@ Controller::Controller( const bool debug )
 unsigned int Controller::window_size( void )
 {
   /* Default: fixed window size of 100 outstanding datagrams */
-  unsigned int the_window_size = a_window_size;
+  unsigned int the_window_size = rate;
 
   if ( debug_ ) {
     cerr << "At time " << timestamp_ms()
@@ -48,19 +48,40 @@ void Controller::ack_received( const uint64_t sequence_number_acked,
 			       const uint64_t timestamp_ack_received )
                                /* when the ack was received (by sender) */
 {
-  /* Default: take no action */
-  if (timestamp_ack_received - send_timestamp_acked < MD_TIMEOUT) {
-    a_window_size += ADDITIVE_INCREASE_SIZE / a_window_size;
-  } else {
-    a_window_size *= MULT_DECREASE_FACTOR;
-    a_window_size = a_window_size < 1 ? 1 : a_window_size;
-  }
   if ( debug_ ) {
     cerr << "At time " << timestamp_ack_received
 	 << " received ack for datagram " << sequence_number_acked
 	 << " (send @ time " << send_timestamp_acked
 	 << ", received @ time " << recv_timestamp_acked << " by receiver's clock)"
 	 << endl;
+  }
+
+  double new_rtt = timestamp_ack_received - send_timestamp_acked;
+
+  double new_rtt_diff = new_rtt - prev_rtt;
+  prev_rtt = new_rtt;
+  rtt_diff = (1 - ALPHA) * rtt_diff + ALPHA * new_rtt_diff;
+
+  double normalized_gradient = rtt_diff / MIN_RTT;
+
+  if (new_rtt < T_LOW) {
+    rate += DELTA;
+    return;
+  }
+  if (new_rtt > T_HIGH) {
+    rate *= (1 - BETA * (1- T_HIGH / new_rtt));
+    if (rate < 1) {
+      rate = 1;
+    }
+    return;
+  }
+  if (normalized_gradient <= 0) {
+    rate += n * DELTA;
+  } else {
+    rate *= (1 - BETA * normalized_gradient);
+  }
+  if (rate < 1) {
+    rate = 1;
   }
 }
 

@@ -8,13 +8,20 @@
 class Controller
 {
 private:
-  const unsigned int INITIAL_WINDOW_SIZE = 50;
-  const unsigned int ADDITIVE_INCREASE_SIZE = 2;
-  const double MULT_DECREASE_FACTOR = 4.0 / 5.0;
-  const uint64_t MD_TIMEOUT = 100;
+  const double ALPHA = 0.25;
+  const double BETA = 0.4;
+  const double DELTA = 0.1;
+
+  const unsigned int T_LOW = 80;
+  const unsigned int T_HIGH = 150;
+  const unsigned int MIN_RTT = 50;
+  const unsigned int N = 1;
 
   bool debug_; /* Enables debugging output */
-  double a_window_size = INITIAL_WINDOW_SIZE;
+
+  unsigned int prev_rtt = MIN_RTT;
+  double rtt_diff = 0;
+  double rate = 50;
 
   /* Add member variables here */
 
