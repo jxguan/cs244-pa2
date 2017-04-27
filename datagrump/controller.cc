@@ -76,7 +76,7 @@ void Controller::ack_received( const uint64_t sequence_number_acked,
     return;
   }
   if (normalized_gradient <= 0) {
-    rate += n * DELTA;
+    rate += N * DELTA;
   } else {
     rate *= (1 - BETA * normalized_gradient);
   }
