@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.8.25)  27 APR 2017 04:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.8.25)  27 APR 2017 14:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -190,26 +190,26 @@ LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
 ) (./writeup.aux)
 \openout1 = `writeup.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 36.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 38.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 \AtBeginShipoutBox=\box28
-Package hyperref Info: Link coloring ON on input line 36.
+Package hyperref Info: Link coloring ON on input line 38.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
  (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
@@ -217,9 +217,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count104
 )
-LaTeX Info: Redefining \ref on input line 36.
-LaTeX Info: Redefining \pageref on input line 36.
-LaTeX Info: Redefining \nameref on input line 36.
+LaTeX Info: Redefining \ref on input line 38.
+LaTeX Info: Redefining \pageref on input line 38.
+LaTeX Info: Redefining \nameref on input line 38.
  (./writeup.out) (./writeup.out)
 \@outlinefile=\write3
 \openout3 = `writeup.out'.
@@ -249,34 +249,36 @@ Package grfext Info: Graphics extension search list:
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 37.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 39.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 37.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 37.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 37.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 37.
-LaTeX Font Info:    Try loading font information for U+lasy on input line 37.
- (/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
-File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
-)
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 37.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 39.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 39.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 53.
+LaTeX Font Info:    Font shape `OT1/pcr/bx/n' in size <12> not available
+(Font)              Font shape `OT1/pcr/b/n' tried instead on input line 39.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 57.
- <warmup-a.jpg, id=5, 1421.31pt x 852.18375pt>
+(Font)              <12> on input line 39.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 39.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 39.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 39.
+ (/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 46.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 50.
+ <warmup-a.jpg, id=6, 1421.31pt x 852.18375pt>
 File: warmup-a.jpg Graphic file (type jpg)
  <use warmup-a.jpg>
-Package pdftex.def Info: warmup-a.jpg used on input line 63.
+Package pdftex.def Info: warmup-a.jpg used on input line 56.
 (pdftex.def)             Requested size: 213.1873pt x 127.82204pt.
 
-Underfull \hbox (badness 1292) in paragraph at lines 92--105
+Underfull \hbox (badness 1292) in paragraph at lines 85--98
 \OT1/ptm/m/n/10.95 dow size that we found is $\OT1/cmr/m/n/10.95 12$\OT1/ptm/m/n/10.95 , with a score
  []
 
@@ -285,60 +287,64 @@ Underfull \hbox (badness 1292) in paragraph at lines 92--105
 
 
  <./warmup-a.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 139--147
+Underfull \hbox (badness 10000) in paragraph at lines 132--140
 \OT1/ptm/m/n/10.95 We im-ple-mented the AIMD scheme in
  []
 
 
-Underfull \hbox (badness 3291) in paragraph at lines 139--147
+Underfull \hbox (badness 3291) in paragraph at lines 132--140
 []\OT1/pcr/m/n/10.95 datagrump/controller.cc\OT1/ptm/m/n/10.95 . We made
  []
 
 
-Underfull \hbox (badness 1102) in paragraph at lines 139--147
+Underfull \hbox (badness 1102) in paragraph at lines 132--140
 \OT1/ptm/m/n/10.95 time-out. This sim-u-lates the sit-u-a-tions where
  []
+
+<warmup-b.jpg, id=27, 618.08539pt x 373.98462pt>
+File: warmup-b.jpg Graphic file (type jpg)
+ <use warmup-b.jpg>
+Package pdftex.def Info: warmup-b.jpg used on input line 181.
+(pdftex.def)             Requested size: 216.33311pt x 130.89656pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<warmup-b.jpg, id=23, 618.08539pt x 373.98462pt>
-File: warmup-b.jpg Graphic file (type jpg)
- <use warmup-b.jpg>
-Package pdftex.def Info: warmup-b.jpg used on input line 188.
-(pdftex.def)             Requested size: 216.33311pt x 130.89656pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
  [2 <./warmup-b.jpg>]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 250.
+               Default added (so using `tbp') on input line 243.
 
-<warmup-c.jpg, id=44, 457.87846pt x 257.74615pt>
+<warmup-c.jpg, id=46, 457.87846pt x 257.74615pt>
 File: warmup-c.jpg Graphic file (type jpg)
  <use warmup-c.jpg>
-Package pdftex.def Info: warmup-c.jpg used on input line 251.
+Package pdftex.def Info: warmup-c.jpg used on input line 244.
 (pdftex.def)             Requested size: 206.0434pt x 115.98468pt.
- <aiad.png, id=46, 1695.33376pt x 931.48pt>
+ <aiad.png, id=48, 1695.33376pt x 931.48pt>
 File: aiad.png Graphic file (type png)
  <use aiad.png>
-Package pdftex.def Info: aiad.png used on input line 284.
+Package pdftex.def Info: aiad.png used on input line 277.
 (pdftex.def)             Requested size: 339.06075pt x 186.2927pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<mimd.png, id=50, 1673.25125pt x 957.5775pt>
+<mimd.png, id=52, 1673.25125pt x 957.5775pt>
 File: mimd.png Graphic file (type png)
  <use mimd.png>
-Package pdftex.def Info: mimd.png used on input line 306.
+Package pdftex.def Info: mimd.png used on input line 299.
 (pdftex.def)             Requested size: 334.64432pt x 191.5121pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<mimd-2.png, id=51, 1691.31876pt x 813.0375pt>
+<mimd-2.png, id=53, 1691.31876pt x 813.0375pt>
 File: mimd-2.png Graphic file (type png)
  <use mimd-2.png>
-Package pdftex.def Info: mimd-2.png used on input line 314.
+Package pdftex.def Info: mimd-2.png used on input line 307.
 (pdftex.def)             Requested size: 338.25775pt x 162.60461pt.
 
 
@@ -346,96 +352,173 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 [3 <./warmup-c.jpg>]
 
-./writeup.tex:347: LaTeX Error: Environment algorithm undefined.
+./writeup.tex:340: LaTeX Error: Environment algorithm undefined.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.347 \begin{algorithm}
+l.340 \begin{algorithm}
                        
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<Timely_pseudocode.PNG, id=71, 384.2355pt x 415.5525pt>
+<Timely_pseudocode.PNG, id=73, 384.2355pt x 415.5525pt>
 File: Timely_pseudocode.PNG Graphic file (type png)
  <use Timely_pseudocode.PNG>
-Package pdftex.def Info: Timely_pseudocode.PNG used on input line 348.
+Package pdftex.def Info: Timely_pseudocode.PNG used on input line 341.
 (pdftex.def)             Requested size: 207.48407pt x 224.395pt.
 
 
-./writeup.tex:349: LaTeX Error: \caption outside float.
+./writeup.tex:342: LaTeX Error: \caption outside float.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.349   \caption
+l.342   \caption
                 {The Delay Gradient Algorithm described in \textit{Timely: R...
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-./writeup.tex:352: LaTeX Error: \begin{document} ended by \end{algorithm}.
+./writeup.tex:345: LaTeX Error: \begin{document} ended by \end{algorithm}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.352 \end{algorithm}
+l.345 \end{algorithm}
                      
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 348--353
+Underfull \hbox (badness 10000) in paragraph at lines 341--346
 [][]
  []
 
 
-Underfull \hbox (badness 3872) in paragraph at lines 348--353
+Underfull \hbox (badness 3872) in paragraph at lines 341--346
 \OT1/ptm/m/n/10.95 The De-lay Gra-di-ent Al-go-rithm de-scribed in
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [4 <./aiad.png> <./mimd.png>]
-Underfull \hbox (badness 3039) in paragraph at lines 396--400
+ [4 <./aiad.png> <./mimd.png>] [5 <./mimd-2.png> <./Timely_pseudocode.PNG>]
+Underfull \hbox (badness 3039) in paragraph at lines 406--410
 []\OT1/ptm/m/n/10.95 We then re-moved the "lower-bound-ing the
  []
 
-[5 <./mimd-2.png> <./Timely_pseudocode.PNG>] (./writeup.bbl)
-Underfull \hbox (badness 2181) in paragraph at lines 435--439
-[]\OT1/pcr/m/n/10.95 \appendix \OT1/ptm/m/n/10.95 be-fore any ap-pendix sec-tion to
+<contest1.png, id=100, 455.20062pt x 255.95625pt>
+File: contest1.png Graphic file (type png)
+ <use contest1.png>
+Package pdftex.def Info: contest1.png used on input line 421.
+(pdftex.def)             Requested size: 227.59975pt x 127.9778pt.
+
+Overfull \hbox (8.51363pt too wide) in paragraph at lines 421--423
+ [][] 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 444.
-[6]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 444.
+<contest3.png, id=102, 455.20062pt x 255.95625pt>
+File: contest3.png Graphic file (type png)
+ <use contest3.png>
+Package pdftex.def Info: contest3.png used on input line 436.
+(pdftex.def)             Requested size: 209.39482pt x 117.74129pt.
+
+Overfull \hbox (14.91507pt too wide) in paragraph at lines 442--447
+\OT1/pcr/m/n/10.95 datagrump/tweak[]timely[]constants2.sh\OT1/ptm/m/n/10.95 .
+ []
+
+<contest2.png, id=103, 1687.30376pt x 921.4425pt>
+File: contest2.png Graphic file (type png)
+ <use contest2.png>
+Package pdftex.def Info: contest2.png used on input line 462.
+(pdftex.def)             Requested size: 455.57811pt x 248.7928pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[6 <./contest1.png (PNG copy)> <./contest3.png (PNG copy)>] <contest4.png, id=115, 1155.31625pt x 1262.7175pt>
+File: contest4.png Graphic file (type png)
+ <use contest4.png>
+Package pdftex.def Info: contest4.png used on input line 492.
+(pdftex.def)             Requested size: 462.11832pt x 505.07806pt.
+
+Overfull \hbox (6.87424pt too wide) in paragraph at lines 492--494
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \vbox (badness 1189) has occurred while \output is active []
+
+ [7 <./contest2.png>] (./writeup.bbl)
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 557.
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
+File: omsptm.fd 
+)
+LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 557.
+
+Underfull \hbox (badness 6927) in paragraph at lines 559--561
+[]\OT1/pcr/m/n/10.95 contest[]graph.ods\OT1/ptm/m/n/10.95 : A Li-bre-Of-fice
+ []
+
+
+Underfull \hbox (badness 1028) in paragraph at lines 569--571
+[]\OT1/pcr/m/n/10.95 PA2[]partA[]graph.xlsx\OT1/ptm/m/n/10.95 : A ex-cel file
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 571--573
+[]\OT1/pcr/m/n/10.95 tweak-timely-constants.sh\OT1/ptm/m/n/10.95 : A
+ []
+
+
+Underfull \hbox (badness 4886) in paragraph at lines 573--575
+[]\OT1/pcr/m/n/10.95 tweak-timely-constants2.sh\OT1/ptm/m/n/10.95 : A
+ []
+
+
+Underfull \hbox (badness 4886) in paragraph at lines 575--577
+[]\OT1/pcr/m/n/10.95 tweak-timely-constants3.sh\OT1/ptm/m/n/10.95 : A
+ []
+
+
+Underfull \hbox (badness 4886) in paragraph at lines 577--579
+[]\OT1/pcr/m/n/10.95 tweak-timely-constants4.sh\OT1/ptm/m/n/10.95 : A
+ []
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 593.
+[8] [9 <./contest4.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 593.
  (./writeup.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 444.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 444.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 593.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 593.
 Package rerunfilecheck Info: File `writeup.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 444.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 593.
  )
 (\end occurred when \iffalse on line 337 was incomplete) 
 Here is how much of TeX's memory you used:
- 6120 strings out of 494953
- 88217 string characters out of 6180977
- 179228 words of memory out of 5000000
- 9300 multiletter control sequences out of 15000+600000
- 21727 words of font info for 51 fonts, out of 8000000 for 9000
+ 6179 strings out of 494953
+ 89019 string characters out of 6180977
+ 180699 words of memory out of 5000000
+ 9335 multiletter control sequences out of 15000+600000
+ 23827 words of font info for 55 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 36i,10n,37p,301b,326s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on writeup.pdf (6 pages, 622652 bytes).
+ 36i,10n,37p,301b,361s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on writeup.pdf (9 pages, 1120905 bytes).
 PDF statistics:
- 139 PDF objects out of 1000 (max. 8388607)
- 113 compressed objects within 2 object streams
- 40 named destinations out of 1000 (max. 500000)
- 36 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 181 PDF objects out of 1000 (max. 8388607)
+ 147 compressed objects within 2 object streams
+ 54 named destinations out of 1000 (max. 500000)
+ 56 words of extra memory for PDF output out of 10000 (max. 10000000)
 

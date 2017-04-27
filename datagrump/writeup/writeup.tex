@@ -24,7 +24,9 @@
 
 \title{ %
   Congestion-Control Algorithms on an Emulated Cellular Network\\
-\large CS 244 PA2 Writeup}
+\large CS 244 PA2 Writeup \\
+Teamname: \texttt{P4B4';DROP TABLE glad\_you\_have\_sanitization}\\
+Github Repo: \url{https://github.com/jxguan/cs244-pa2}}
 
 \author{Hope Casey-Allen  \\
   {\tt hcaseyal@stanford.edu} \\\And
@@ -35,15 +37,6 @@
 
 \begin{document}
 \maketitle
-\begin{abstract}
-  This document contains the instructions for preparing a camera-ready
-  manuscript for the proceedings of ACL-2017. The document itself
-  conforms to its own specifications, and is therefore an example of
-  what your manuscript should look like. These instructions should be
-  used for both papers submitted for review and for final versions of
-  accepted papers.  Authors are asked to conform to all the directions
-  reported in this document.
-\end{abstract}
 
 
 
@@ -110,7 +103,7 @@ size over $10$ runs (see table \ref{tab:warmup-a}). We can see that the standard
 deviations are very low when compared to the averages, showing that the
 measurements are extremely repeatable. This matches our expectation because
 all of the code is deterministic. The only source of variations is likely the
-fluctuation of the machine performance or different shceduling decisions.
+fluctuation of the machine performance or different scheduling decisions.
 
 \begin{table}[h]
   \centering
@@ -353,6 +346,23 @@ following pseudocode from the paper:
 
 \subsubsection{Initial Implementation}
 
+The Delay Gradient scheme works by looking at the change in RTT over time. There
+are 4 main states. \begin{enumerate}
+  \item If the change in RTT, the delay gradient, is negative or
+0, then this means that that the queue is draining, and we can try to send more
+packets by increasing our window size.
+\item If the gradient is positive, then the
+network is becoming congested as packets are spending longer and longer time in
+the queue, so we decrease our sending rate. The last two stages are for the
+extremes of a very empty queue or a very congested queue.
+\item If the most recent
+  rtt of a packet is less than some threshold $T_{low}$, then we aggressively increase
+the sending rate. 
+\item If the most recent rtt is greater than some threshold
+  $T_{high}$, which is the highest RTT that we will accept, then we aggressively
+decrease the sending rate. 
+  
+\end{enumerate}
 
 In the very original run right after we implemented the delay gradient scheme
 with arbitrarily picked constant, we got a score of $12.51$ (with HAI enabled), which is even worse
@@ -371,7 +381,7 @@ rate after a period of slow growth (where the gradient is negative for $5$
 completion events). This enabled us to get higher throughput at the cost of
 higher delay. After doing some math on the scoring function, we decided that the
 best strategy is to maintain a relatively low delay and then try to maximize the
-througput. Thus, we ended up disabling HAI for a less aggressive increase to
+throughput. Thus, we ended up disabling HAI for a less aggressive increase to
 achieve a lower delay. 
 
 By looking at the graphs, we saw that there were times when the packet transmission rate dipped to near $0$, so we lower
@@ -398,9 +408,140 @@ our score decreased because we had long periods of time of $0$ packet
 transmission, which led to a slightly lower throughput with approximately the
 same delay. 
 
-We then ran a script overnight to vary parameters and got the following result:
+We then ran a script overnight to vary $\delta$, $T_{low}$, and $T_{high}$, and
+picked the constants producing the best score. One intersting thing that we
+noticed was that (as shown in figure \ref{fig:cont1}) the distribution of score
+over $\delta$ follows a similar pattern for different choices of $T_{low}$ and
+$T_{high}$, but the optimal choice of $\delta$ depends on our choices of
+$T_{low}$, and $T_{high}$.
 
+\begin{figure}[h]
+  \centering
 
+  \includegraphics[scale=0.5]{contest1}
+  \caption{The distribution of score over $\delta$ for fixed choices of
+    $T_{low}$ and $T_{high}$. }
+    \label{fig:cont1}
+\end{figure}
+
+We also noticed that the max score achieved is at the boundary value of what we
+tried with $\delta=0.25$ and it is likely that the optimal choice for $\delta$ is
+greater than $0.25$. Therefore, we went ahead and fixed $T_{low}$ and
+$T_{high}$, and adjusted $\delta$ from $0.1$ all the way to $0.9$. As shown in
+figure \ref{fig:cont2}, indeed we reached the maximum score between $\delta=0.2$
+and $\delta=0.3$. Hence, we picked $\delta=0.25$ as our choice.
+\begin{figure}[h]
+  \centering
+
+  \includegraphics[scale=0.46]{contest3}
+  \caption{The distribution of score over $\delta$ for the optimal choice of
+    $T_{low}$ and $T_{high}$. }
+    \label{fig:cont2}
+\end{figure}
+
+After getting the optimal choices with $\delta = 0.25$, $T_{low}=60$ and
+$T_{high}=150$, which yielded us a best score of $30.95$, we fixed these three
+parameters, and started tweaking $\alpha$ and $\beta$ using
+\texttt{datagrump/tweak\_timely\_constants2.sh}. This gave the best choices for
+$\alpha = 0.8$ and $\beta = 0.3$ with an overall score of $32.85$.
+
+We then noticed that the distribution of score over these five parameters is
+likely a mesh in a five-dimensional space. Picking the maximum value by
+adjusting only two or three parameters would not give us the best result, but
+rather we need to tweak the parameters in multiple iterations. So we started to
+tune the different parameters alternatively until the max score becomes stable
+and no longer increasing. Interestingly, it turned out that the choices we had
+were already the optimals.
+
+This brought us to our final choice of the parameters with $\alpha=0.8$,
+$\beta = 0.3$, $\delta=0.25$, $T_{low}=60$ and $T_{high}=150$, which gave us a
+score of $32.85$.
+
+\subsubsection{Analysis}
+\begin{figure*}[h]
+  \includegraphics[scale=0.27]{contest2}
+  \caption{The result of our delay gradient scheme with the optimal paramters.}
+  \label{fig:cont3}
+\end{figure*}
+
+By looking at the result of our Delay Gradient Scheme, we find out the
+bottleneck to a higher score is likely the delay. We still had a signal delay of
+$124$ ms, while the other contestant on top of the leaderboard had signal delays
+of $80$ ms. By examining figure \ref{fig:cont3}, we noticed that our high delay
+was caused by sudden drops of the network capacity. In order to deal with that,
+we would want our algorithm to adjust more quickly to sudden congestions in the
+network. We realized that the feedback loop for the delay is quite long, and
+hence we started to look into other ways to adjust to the network capacity. We
+believed that the delay is not a straightforward discription of the network
+status, but rather it is the number of packets in the queue that really matters.
+Bearing that in mind, we turned to the Sprout paper
+\cite{winstein2013stochastic} for optimization ideas.
+
+\subsection{Inspirations from Sprout}
+
+We drew inspiration from Sprout to use the number of packets in the queue as an
+indicator of how congested the network is. This is in correspondence to Sprout's
+algorithm where the estimations are based off the number of bytes sent and
+received. In our case, all of the packets are fixed sized, so simpling using the
+number of packets is sufficient. We achieved that by calculating the difference
+between the seq number in the latest ack and the the seq number of last sent
+packet.
+
+\begin{figure*}[h]
+  \centering
+  \includegraphics[scale=0.4]{contest4}
+  \caption{The throughput and delay graph for the baby num-packets-in-queue
+  gradient algorithm.}
+  \label{fig:cont4}
+\end{figure*}
+
+We started off by simply replacing the delay gradient algorithm with a
+num-packets-in-queue gradient algorithm. Instead calculating the gradient of the
+RTTs, we calculated the gradient of the number of packets in flight. Without any
+tuning of the parameters, we were able to get the result as shown in figure
+\ref{fig:cont4}.  We can see that it has an extremely high utilization of
+$97.5\%$, but also a very high signal delay of over $700$ ms.
+
+We then tuned the parameters (the two thresholds to be exact) and tested how
+this scheme works under different choices of the parameters. It turned out that
+whenever we are able to obtain a lower delay, the throughput also drops
+accordingly.  In that way it is very hard for us to make any improvements on the
+score by simply tweaking the parameters.
+
+We noticed that a major issue in this scheme is the two thresholds. While the
+thresholds make sense for bounding the delay within a certain region, it does
+not make sense to bound the queue size to a specific region, as the network
+capacity can vary from $0$ to very high.
+
+Therefore, we modified our scheme to still use the two thresholds for the delay,
+only using the number of packets in queue for the gradient. This managed to give
+us an extremely low delay of only $78$ ms, but the utilization is also terribly
+low (only $13.8\%$). This portion of code is checked in at the \texttt{hybrid} branch of
+our Github Repo.
+
+\subsection{Future Work}
+
+Given that the tuning of the parameters takes so much time, we weren't able to
+tune our packets-in-the-queue algorithm to its best performance. We suspect that
+it could potetially perform better than the delay gradient algorithm, since we
+were able to reach a lowest-ever delay, but whether we were able to reach good
+utilizaiton with the scheme remains unknown. It would be interesting to tune out
+the parameters to see if this hybrid scheme could outperform Timely or Sprout.
+
+\section{Conclusions}
+
+We were able to reach the maximum score of $32.85$ using the algorithm and parameters
+discussed in section $4.2$. The actual code can be found at the \texttt{master}
+branch of our Github repo.
+
+One reflection that we had when doing this project is how the scoring function
+could be not indicative. We observed that to reach a higher score, the best way
+is to maintain a low delay and a relatively moderate utilization of the network.
+Such might not be the case in real life. For example, if one is to do large file
+transfers over the network, a $100$ ms delay and a $200$ ms are not going to be
+huge impacts, but the scores are differed by the factor of $2$. We believe that
+in order to better represent real-life scenarios, the scoring functions should
+be adpated correspondingly to actual use cases.
 % include your own bib file like this:
 %\bibliographystyle{acl}
 %\bibliography{acl2017}
@@ -409,36 +550,44 @@ We then ran a script overnight to vary parameters and got the following result:
 
 \appendix
 
-\section{Supplemental Material}
-\label{sec:supplemental}
-ACL 2017 also encourages the submission of supplementary material
-to report preprocessing decisions, model parameters, and other details
-necessary for the replication of the experiments reported in the 
-paper. Seemingly small preprocessing decisions can sometimes make
-a large difference in performance, so it is crucial to record such
-decisions to precisely characterize state-of-the-art methods.
+\section{Glossary}
 
-Nonetheless, supplementary material should be supplementary (rather
-than central) to the paper. {\bf Submissions that misuse the supplementary 
-material may be rejected without review.}
-Essentially, supplementary material may include explanations or details
-of proofs or derivations that do not fit into the paper, lists of
-features or feature templates, sample inputs and outputs for a system,
-pseudo-code or source code, and data. (Source code and data should
-be separate uploads, rather than part of the paper).
+Here is a glossary of files and folders that we added to the \texttt{datagrump}
+folder. \begin{itemize}
+  \item \texttt{calc\_max\_score.go}: A Golang script to compute the scores of
+    outputs and output the best score.
+  \item \texttt{contest\_graph.ods}: A LibreOffice Calc file that we used to generate
+    the graphs for the contest.
+  \item \texttt{output\_a/}: The folder containg the outputs generated when
+    tuning the different parameters for warmup exercise A.
+  \item \texttt{output\_b/}: The folder containg the outputs generated when
+    tuning the different parameters for warmup exercise B.
+  \item \texttt{output\_c/}: The folder containg the outputs generated when
+    tuning the different parameters for warmup exercise C.
+  \item \texttt{output\_contest/}: The folder containg the outputs generated when
+    tuning the different parameters for the contest.
+  \item \texttt{PA2\_partA\_graph.xlsx}: A excel file that we used to generate
+    some of the graphs in warmup exercise A.
+  \item \texttt{tweak-timely-constants.sh}: A shell script to tweak the values
+    of $\delta$, $T_{low}$ and $T_{high}$ for the delay gradient algorithm.
+  \item \texttt{tweak-timely-constants2.sh}: A shell script to tweak the values
+    of $\alpha$ and $\beta$ for the delay gradient algorithm.
+  \item \texttt{tweak-timely-constants3.sh}: A shell script to tweak the values
+    of $T_{low}$ and $T_{high}$ for the delay gradient algorithm.
+  \item \texttt{tweak-timely-constants4.sh}: A shell script to tweak the value
+    of $\delta$ on fixed $T_{low}$ and $T_{high}$ for the delay gradient algorithm.
+  \item \texttt{warmup-a.sh}: A shell script to adjust the fixed window sizes for
+    warmup exercise A.
+  \item \texttt{warmup-b.sh}: A shell script to adjust the additive increase
+    size and multiplicative decrease factor for the AIMD scheme in warmup
+    exercise B.
+  \item \texttt{warmup-b2.sh}: A shell script to adjust the initial window size for
+    the AIMD scheme in warmup exercise B.
+  \item \texttt{warmup-c.sh}: A shell script to adjust the delay threshold for
+    the AIMD scheme as a delay-triggered scheme in warmup
+    exercise C.
+  \item \texttt{writeup/}: The \LaTeX \   files and images to generate this writeup.
+\end{itemize}
 
-The paper should not rely on the supplementary material: while the paper
-may refer to and cite the supplementary material and the supplementary material will be available to the
-reviewers, they will not be asked to review the
-supplementary material.
-
-Appendices ({\em i.e.} supplementary material in the form of proofs, tables,
-or pseudo-code) should come after the references, as shown here. Use
-\verb|\appendix| before any appendix section to switch the section
-numbering over to letters.
-
-\section{Multiple Appendices}
-\dots can be gotten by using more than one section. We hope you won't
-need that.
 
 \end{document}
