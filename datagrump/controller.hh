@@ -15,6 +15,7 @@ private:
   const unsigned int T_LOW = 80;
   const unsigned int T_HIGH = 150;
   const unsigned int MIN_RTT = 50;
+  const double MIN_RATE = 1.0;
   const unsigned int N = 1;
 
   bool debug_; /* Enables debugging output */

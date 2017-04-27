@@ -70,8 +70,9 @@ void Controller::ack_received( const uint64_t sequence_number_acked,
   }
   if (new_rtt > T_HIGH) {
     rate *= (1 - BETA * (1- T_HIGH / new_rtt));
-    if (rate < 1) {
-      rate = 1;
+
+    if (rate < MIN_RATE) {
+      rate = MIN_RATE;
     }
     return;
   }
@@ -80,8 +81,9 @@ void Controller::ack_received( const uint64_t sequence_number_acked,
   } else {
     rate *= (1 - BETA * normalized_gradient);
   }
-  if (rate < 1) {
-    rate = 1;
+
+  if (rate < MIN_RATE) {
+    rate = MIN_RATE;
   }
 }
 
