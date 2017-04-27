@@ -31,9 +31,6 @@ void Controller::datagram_was_sent( const uint64_t sequence_number,
                                     /* in milliseconds */
 {
   /* Default: take no action */
-  if (sequence_number > last_sent_seq) {
-    last_sent_seq = sequence_number;
-  }
 
   if ( debug_ ) {
     cerr << "At time " << send_timestamp
@@ -60,10 +57,9 @@ void Controller::ack_received( const uint64_t sequence_number_acked,
   }
 
   double new_rtt = timestamp_ack_received - send_timestamp_acked;
-  double new_pkts_in_q = sequence_number_acked - last_sent_seq;
 
-  double new_rtt_diff = new_pkts_in_q - prev_rtt;
-  prev_rtt = new_pkts_in_q;
+  double new_rtt_diff = new_rtt - prev_rtt;
+  prev_rtt = new_rtt;
   rtt_diff = (1 - ALPHA) * rtt_diff + ALPHA * new_rtt_diff;
 
   double normalized_gradient = rtt_diff / MIN_RTT;

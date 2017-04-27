@@ -14,15 +14,13 @@ private:
 
   const unsigned int T_LOW = 60;
   const unsigned int T_HIGH = 150;
-  const unsigned int MIN_RTT = 1;
+  const unsigned int MIN_RTT = 50;
   const double MIN_RATE = 1.0;
   const unsigned int N = 1;
 
-  unsigned int last_sent_seq = 0;
-
   bool debug_; /* Enables debugging output */
 
-  unsigned int prev_rtt = 0;
+  unsigned int prev_rtt = MIN_RTT;
   double rtt_diff = 0;
   double rate = 50;
 
